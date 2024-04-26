@@ -9,7 +9,7 @@ const CountryInfo = ({ country }) => {
           return <li key={language[0]}>{language[1]}</li>;
         })}
       </ul>
-      <img src={country.flags.png} />
+      <img src={country.flags.png} alt={country.flags.alt} />
     </>
   );
 };

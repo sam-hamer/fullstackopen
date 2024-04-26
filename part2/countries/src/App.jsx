@@ -18,12 +18,20 @@ const App = () => {
     setSearchVal(event.target.value);
   };
 
+  const handleShowCountry = (country) => {
+    setSearchVal(country.name.common);
+  };
+
   return (
     <div>
       find countries
       <input value={searchVal} onChange={handleCountryChange} />
       {/* {console.log(countries)} */}
-      <Countries countries={countries} searchVal={searchVal} />
+      <Countries
+        countries={countries}
+        searchVal={searchVal}
+        handleShowCountry={handleShowCountry}
+      />
     </div>
   );
 };

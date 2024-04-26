@@ -1,7 +1,7 @@
 import Country from "./Country";
 import CountryInfo from "./CountryInfo";
 
-const Countries = ({ countries, searchVal }) => {
+const Countries = ({ countries, searchVal, handleShowCountry }) => {
   const countryNames = countries.filter(
     (country) =>
       country.name.common.toLowerCase().search(searchVal.toLowerCase()) !== -1
@@ -16,7 +16,13 @@ const Countries = ({ countries, searchVal }) => {
   return (
     <ul>
       {countryNames.map((country) => {
-        return <Country key={country.name.common} country={country} />;
+        return (
+          <Country
+            key={country.name.common}
+            country={country}
+            handleShowCountry={handleShowCountry}
+          />
+        );
       })}
     </ul>
   );
