@@ -6,7 +6,6 @@ const Countries = ({ countries, searchVal, handleShowCountry }) => {
     (country) =>
       country.name.common.toLowerCase().search(searchVal.toLowerCase()) !== -1
   );
-  console.log(countryNames);
   if (countryNames.length === 1) {
     return <CountryInfo country={countryNames[0]} />;
   }

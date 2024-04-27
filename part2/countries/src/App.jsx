@@ -9,12 +9,10 @@ const App = () => {
   useEffect(() => {
     countryService.getAllCountries().then((res) => {
       setCountries(res);
-      // console.log(res);
     });
   }, []);
 
   const handleCountryChange = (event) => {
-    // console.log(event.target.value);
     setSearchVal(event.target.value);
   };
 
@@ -26,7 +24,6 @@ const App = () => {
     <div>
       find countries
       <input value={searchVal} onChange={handleCountryChange} />
-      {/* {console.log(countries)} */}
       <Countries
         countries={countries}
         searchVal={searchVal}
