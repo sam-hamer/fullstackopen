@@ -74,18 +74,29 @@ const App = () => {
         name: newName,
         number: newNumber,
       };
-      personService.create(newPerson).then((res) => {
-        setPersons(persons.concat(res));
-        setNotificationMessage({
-          message: `Added ${res.name}`,
-          type: "success",
+      personService
+        .create(newPerson)
+        .then((res) => {
+          setPersons(persons.concat(res));
+          setNotificationMessage({
+            message: `Added ${res.name}`,
+            type: "success",
+          });
+          setTimeout(() => {
+            setNotificationMessage({ message: null, type: null });
+          }, 3000);
+          setNewName("");
+          setNewNumber("");
+        })
+        .catch((error) => {
+          setNotificationMessage({
+            message: error.response.data.error,
+            type: "error",
+          });
+          setTimeout(() => {
+            setNotificationMessage({ message: null, type: null });
+          }, 3000);
         });
-        setTimeout(() => {
-          setNotificationMessage({ message: null, type: null });
-        }, 3000);
-        setNewName("");
-        setNewNumber("");
-      });
     }
   };
 
